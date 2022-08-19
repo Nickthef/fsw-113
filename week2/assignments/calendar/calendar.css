@@ -1,3 +1,7 @@
+#year {
+  width: 50px;
+}
+
 .calendarWrapper {
   border: silver 2px solid;
   width: 525px;
@@ -28,4 +32,9 @@
   text-align: center;
   padding: 3px;
   background-color: silver;
+}
+
+.input-boxes {
+  text-align: center;
+  padding: 2px;
 }
