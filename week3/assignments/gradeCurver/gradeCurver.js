@@ -4,6 +4,22 @@
 
 // create an event listener that resets the scores and grades to their defaults when the Reset button is clicked
 
+
+document.getElementById("submit").addEventListener("click", curveGrades);
+let mean;
+document.getElementById("reset").addEventListener("click", reset);
+const grades = document.getElementById("grades");
+
+function reset() {
+    const scores = document.getElementById("scores");
+    
+
+    scores.value = "";
+    grades.textContent = "Curved Grades Show Here ";
+}
+
+
+
 function applyBell(grade, index, ary) {
     switch (true) {
         case grade >= (mean + (gradeSlice * 2)): 
@@ -37,32 +53,29 @@ function convertArray(obj) {
 // separate lines of code into single lines. It currently has 18 lines of code. Without counting  
 // empty lines, can you get the number of lines down to 8?
 
+
+
 function curveGrades() {
-    **sum = function (accumulator, currentValue) {
-        return accumulator + currentValue
-    }
-
-    **sumGrades = function(array) {
-        return array.reduce(sum)
-    }
-
-    **aryGrades = convertArray(document.querySelector('#scores'))
-
-    **minGrade = aryGrades.reduce(function(a, b) {
-        return Math.min(a, b)
-    })
+    // const sum = (accumulator, currentValue) => accumulator + currentValue;
     
-    **maxGrade = aryGrades.reduce(function(a, b) {
-        return Math.max(a, b)
-    })
+    const sumGrades = array => array.reduce((accumulator, currentValue) => accumulator + currentValue);
     
-    **mean = sumGrades(aryGrades) / aryGrades.length
+    const aryGrades = convertArray(document.querySelector('#scores'))
 
-    **range = maxGrade - minGrade
+    const minGrade = aryGrades.reduce((a, b) => Math.min(a, b))
+    
+    const maxGrade = aryGrades.reduce((a, b) => Math.max(a, b))
+    
+    mean = sumGrades(aryGrades) / aryGrades.length
+
+    const range = maxGrade - minGrade
 
     gradeSlice = range / 5
 
     aryGrades.forEach(applyBell)
 
     // write the value of aryGrades to the grades div in the HTML document
+
+    grades.textContent = aryGrades;
 }
+
